@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+img {
+  object-fit: cover;
+  width: 20%;
+}
+h1 {
+    color: #ff4411;
+    font-size: 48px;
+    font-family: ‘Signika’,
+    sans-serif;
+    padding-bottom: 10px; }
+</style>
+    <meta charset="UTF-8">
+    <title>Вывод историй</title>
+</head>
+<body>
+    <h1>Отлично, вот истории по ключевым словам из твоего предложения:</h1>
+    {% for img in list %}
+    <img src="/static/images/{{img}}" alt="{{ img }}">
+    {% endfor %}
+</body>
+</html>
