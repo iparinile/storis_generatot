@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request
 from select_key_words import select_key_words
 from get_images import get_images
-
+import os
+from clean_folder import remove_contents
 app = Flask(__name__)
 
 
@@ -12,8 +13,11 @@ def index():
 
 @app.route('/a', methods=['GET', 'POST'])
 def render_pic():
+    if os.path.exists('images'):
+        remove_contents('images')
+    else:
+        os.mkdir('images')
     text = request.form['text']
-    print(text)
     key_words = select_key_words(text)
     list_of_all_img = []
     for word in key_words:

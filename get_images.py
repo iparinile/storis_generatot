@@ -8,6 +8,7 @@ def get_images(keyword):
     pics = img.get_images_by_keyword(keyword, 4)
     counter = 1
     list_of_img = []
+    
     for pic in pics:
         pic = pic['image']
         pic_name = keyword + str(counter) + '.jpg'
@@ -17,5 +18,5 @@ def get_images(keyword):
         edit_pic(pic_name, keyword)
         counter += 1
         list_of_img.append(pic_name)
-        shutil.move(pic_name, 'static/images/')
+        shutil.move(pic_name, 'images/')
     return list_of_img
